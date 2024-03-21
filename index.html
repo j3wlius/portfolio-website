@@ -3,8 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JEWLIUS XY</title>
-  </head>
 
-  <body></body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <!-- FONT FAMILY LINK -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- STYLESHEET LINK -->
+    <link rel="stylesheet" href="resources/css/styles.css" />
+    <title>TAMALE</title>
+  </head>
+  <body>
+    <header class="header">
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <h1 id="logo">
+            <a href="#"> TAMALE </a>
+          </h1>
+
+          <!-- NAVBAR LINKS -->
+          <div class="links-container">
+            <ul class="nav-menu">
+              <li><a class="nav-link" href="#about-section">ABOUT</a></li>
+              <li><a class="nav-link" href="#projects">PROJECTS</a></li>
+              <li><a class="nav-link" href="#">CONTACT ME</a></li>
+              <li>
+                <a
+                  class="nav-link btn btn-primary"
+                  href="resources/my-resume.pdf"
+                  target="_blank"
+                  >RESUME <i class="fas fa-arrow-right"></i
+                ></a>
+              </li>
+            </ul>
+
+            <!-- Toggle switch -->
+            <div class="theme-switch">
+              <input type="checkbox" id="switch" />
+              <label class="toggle-icons" for="switch">
+                <img class="moon" src="resources/images/moon.svg" />
+                <img class="sun" src="resources/images/sun.svg" />
+              </label>
+            </div>
+
+            <!-- Hamburger menu -->
+            <div class="hamburger">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- <button id="theme-toggle">
+      <span class="light"><img src="resources/images/moon.svg"></span>
+      <span class="dark"><img src="resources/images/sun.svg"></span>
+    </button> -->
+
+    <!-- JAVASCRIPT LINK -->
+    <script src="resources/scripts/script.js"></script>
+  </body>
 </html>
