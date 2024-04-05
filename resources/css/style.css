@@ -1,0 +1,406 @@
+/* === CSS VARIABLES === */
+:root {
+  /* Background Colors */
+  --background-dark-100: #000000;
+  --background-dark-90: #222222;
+  --background-dark-95: #282828;
+  --background-dark-80: #333333;
+  --background-dark-70: #444444;
+  --background-turq: #29e7cd;
+  --background-dark-60: #666666;
+
+  /* Text Colors */
+  --color-white-100: #ffffff;
+  --color-white-95: #f5f5f5;
+  --color-white-80: #d5d5d5;
+  --color-white-60: #aaaaaa;
+  --color-white-70: #bbbbbb;
+
+  /* Font Family */
+  --font: 'DM Sans', sans-serif;
+
+  /* Font Size */
+  --font-size-48: 48px;
+  --font-size-24: 24px;
+  --font-size-21: 21px;
+  --font-size-18: 18px;
+  --font-size-14: 14px;
+  --font-size-12: 12px;
+  --font-size-11: 11px;
+  --font-size-30: 30px;
+  --font-size-16: 16px;
+  --font-size-13: 13px;
+
+  /* Others */
+  --transition-default: 0.25s ease;
+}
+
+/* === CSS RESET === */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: var(--font);
+  color: var(--color-white-95);
+}
+
+body {
+  height: 100vh;
+  background: var(--background-dark-100);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-white-95);
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: var(--font-size-48);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: var(--font-size-21);
+  margin-bottom: 30px;
+  box-shadow: inset 0 -2px 0 var(--background-turq);
+  width: fit-content;
+}
+
+h3 {
+  font-size: var(--font-size-18);
+  margin-bottom: 5px;
+}
+
+p,
+blockquote {
+  color: var(--color-white-80);
+  font-size: var(--font-size-14);
+  line-height: 1.8;
+}
+
+::selection {
+  background-color: var(--background-turq);
+  color: var(--color-white-100);
+}
+
+i {
+  stroke-width: 20px;
+}
+
+.section-heading {
+  font-size: var(--font-size-30);
+  border-bottom: 2px solid var(--background-dark-60);
+  padding-bottom: 5px;
+}
+
+.section-sub-heading {
+  font-size: var(--font-size-14);
+  text-align: right;
+  font-weight: 300;
+  color: var(--color-white-70);
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  padding: 8px 30px;
+  border: 2px solid var(--background-turq);
+  font-size: var(--font-size-14);
+  transition: var(--transition-default);
+}
+
+.btn-primary:hover {
+  background: var(--background-turq);
+  color: var(--color-white-100);
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* === SCROLLBAR CUSTOM STYLES === */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark-70);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--background-turq);
+}
+
+/* === WRAPPER === */
+.wrapper {
+  position: relative;
+  max-width: 1440px;
+  height: 100vh;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* === MOBILE NAVBAR === */
+.nav-mobile {
+  position: fixed;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--background-dark-90);
+  border-bottom: 1px solid var(--background-dark-70);
+  padding: 10px 20px;
+  z-index: 999;
+}
+
+.nav-mobile .nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-mobile .brand-img {
+  width: 35px;
+  margin-right: 10px;
+}
+
+.nav-mobile .brand-name {
+  font-size: var(--font-size-18);
+  margin-bottom: 0;
+}
+
+.nav-mobile .menu-toggler {
+  font-size: var(--font-size-24);
+  stroke-width: 50px;
+  cursor: pointer;
+}
+
+/* === SIDEBAR === */
+.side-bar {
+  position: absolute;
+  width: 160px;
+  height: 100%;
+  padding: 30px 0;
+  text-align: center;
+  background: var(--background-dark-90);
+  overflow-y: scroll;
+  display: table;
+  z-index: 10;
+}
+
+.side-bar .brand-img {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+.side-bar .brand-name {
+  text-align: center;
+  line-height: 1;
+  font-size: var(--font-size-24);
+  margin-bottom: 30px;
+}
+
+/* === NAVBAR === */
+.nav li a {
+  width: 100%;
+  padding: 12px 0;
+  border-top: 1px solid var(--background-dark-80);
+  font-size: var(--font-size-14);
+  transition: var(--transition-default);
+}
+
+.nav li:last-child a {
+  border-bottom: 1px solid var(--background-dark-80);
+}
+
+.nav li a:hover {
+  background: var(--background-dark-80);
+  box-shadow: inset -2px 0 0 var(--background-turq);
+}
+
+.nav li a.active {
+  background: var(--background-dark-80);
+  box-shadow: inset -2px 0 0 var(--background-turq);
+}
+
+/* === SOCIAL LINKS === */
+.social-btn-groups .btn {
+  padding: 4px 7px;
+  margin: 40px 2px;
+  background: var(--background-dark-70);
+  color: var(--color-white-60);
+  transition: all var(--transition-default);
+}
+
+.social-btn-groups .btn:hover {
+  background: var(--background-turq);
+  color: var(--color-white-100);
+}
+
+/* === SIDEBAR FOOTER === */
+.side-bar-footer {
+  display: table-row;
+  vertical-align: bottom;
+}
+
+.side-bar-footer .copyright {
+  font-size: var(--font-size-12);
+  color: var(--color-white-60);
+}
+
+/* === SECTIONS === */
+.about,
+.resume,
+.portfolio,
+.contact {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  transform: scale(0.5);
+  width: calc(100% - 165px);
+  height: 100%;
+  background-color: var(--background-dark-90);
+  overflow-y: auto;
+  transition: all 0.5s ease;
+}
+
+:is(.about, .resume, .portfolio, .contact).active {
+  top: 0;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* === HERO === */
+.hero {
+  display: flex;
+}
+
+.hero-img-box {
+  width: 50%;
+  max-width: 100%;
+}
+
+.hero-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 0;
+}
+
+.hero-content {
+  width: 50%;
+  max-height: fit-content;
+  background: var(--background-dark-80);
+  padding: 80px;
+  display: table;
+}
+
+.hero-content-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.hero-content .title {
+  font-size: var(--font-size-14);
+  color: var(--color-white-60);
+}
+
+.hero-content .desc {
+  margin-bottom: 20px;
+}
+
+.hero-content .desc p {
+  margin-bottom: 50px;
+}
+
+.name, .brand-name {
+  font-variant: small-caps;
+}
+
+/* === ABOUT INNER === */
+.grid-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.grid-item .item {
+  display: flex;
+}
+
+.grid-item .item-icon {
+  font-size: 40px;
+  margin-right: 30px;
+  color: var(--color-white-60);
+}
+
+.item-wrapper p {
+  font-size: var(--font-size-12);
+}
+
+/* === TESTIMONIALS === */
+.testimonials {
+  margin-bottom: 50px;
+}
+
+.testimonials-row {
+  display: flex;
+}
+
+.testimonials-content {
+  margin-right: 20px;
+}
+
+.testimonials-text {
+  background: var(--background-dark-95);
+  padding: 20px;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid var(--background-dark-70);
+}
+
+.testimonials-author {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 50px;
+}
+
+.author-img {
+  width: 80px;
+  border-radius: 50%;
+  border: 2px solid var(--background-dark-70);
+  margin-right: 10px;
+  transform: translateY(-50%);
+}
+
+.author-info .author-title {
+  font-size: var(--font-size-11);
+  color: var(--color-white-60);
+}
+
+.clients-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clients-row i {
+  font-size: 100px;
+  margin: 0 20px 40px;
+  opacity: 0.5;
+}
