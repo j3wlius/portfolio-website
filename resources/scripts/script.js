@@ -56,7 +56,7 @@ for (let i = 0; i < filterBtn.length; i++) {
     // show item, based on filter button click
     for (let i = 0; i < itemCategory.length; i++) {
       const itemCategoryText = itemCategory[i].textContent;
-      console.log(itemCategoryText);
+      //console.log(itemCategoryText);
       switch (this.textContent) {
         case itemCategoryText:
           itemCategory[i].parentElement.classList.add('active');
