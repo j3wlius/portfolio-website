@@ -525,7 +525,8 @@ img {
 }
 
 /* === RESUME === */
-.resume, .contact {
+.resume,
+.contact {
   padding: 50px 70px;
 }
 
@@ -581,6 +582,32 @@ img {
   box-shadow: 0 0 0 2px var(--background-orange);
 }
 
+/* === PORTFOLIO === */
+.filter-box {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.filter-item {
+  padding: 5px 10px;
+  border: 2px solid var(--background-dark-80);
+  font-size: var(--font-size-12);
+  color: var(--color-white-80);
+  transition: var(--transition-default);
+  cursor: pointer;
+}
+
+.filter-item:hover {
+  border-color: var(--color-white-100);
+}
+
+.filter-item.active {
+  border-color: var(--background-orange);
+  color: var(--color-white-100);
+}
+
 /* === CONTACT === */
 .contact-info {
   display: grid;
@@ -615,7 +642,6 @@ img {
 }
 
 /* contact form style */
-
 .contact-form {
   max-width: 700px;
   margin: auto;
@@ -628,7 +654,7 @@ img {
   margin-bottom: 20px;
 }
 
-.contact .btn-primary{
+.contact .btn-primary {
   color: var(--color-white-100);
 }
 
