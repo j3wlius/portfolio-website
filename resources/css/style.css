@@ -661,8 +661,9 @@ input {
   margin-bottom: 10px;
 }
 
-/* .project-card :is(.card-title) {
-  background: var(--bg-primary);
+.project-card :is(.card-title) {
+  background: hsl(0, 0%, 12%);
+  border-radius: 5px;
   padding: 6px 12px;
   width: max-content;
   box-shadow: var(--shadow-1);
@@ -674,7 +675,11 @@ input {
 .project-card:is(:hover, :focus) :is(.card-title) {
   transform: translateY(0);
   opacity: 1;
-} */
+}
+
+.w-100 {
+  width: 100%;
+}
 
 @media (min-width: 550px) {
   /* === REUSED STYLE === */
