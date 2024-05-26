@@ -1,27 +1,27 @@
-'use strict';
+"use strict";
 
-const menuToggler = document.querySelector('.menu-toggler');
-const sideBar = document.querySelector('.side-bar');
+const menuToggler = document.querySelector(".menu-toggler");
+const sideBar = document.querySelector(".side-bar");
 
-menuToggler.addEventListener('click', function () {
-  sideBar.classList.toggle('active');
+menuToggler.addEventListener("click", function () {
+  sideBar.classList.toggle("active");
 });
 
 // update copyright year
 const currentDate = new Date();
-document.querySelector('.year').innerText = currentDate.getFullYear();
+document.querySelector(".year").innerText = currentDate.getFullYear();
 
 // skills toggle
-const toggleBtns = document.querySelectorAll('.toggle-btn');
-const toggleBtnBox = document.querySelector('.skills-toggle');
-const skillsBox = document.querySelector('.skills-box');
+const toggleBtns = document.querySelectorAll(".toggle-btn");
+const toggleBtnBox = document.querySelector(".skills-toggle");
+const skillsBox = document.querySelector(".skills-box");
 
 const elemToggleFunc = function (elem) {
-  elem.classList.toggle('active');
+  elem.classList.toggle("active");
 };
 
 for (let i = 0; i < toggleBtns.length; i++) {
-  toggleBtns[i].addEventListener('click', function () {
+  toggleBtns[i].addEventListener("click", function () {
     elemToggleFunc(toggleBtnBox);
     for (let i = 0; i < toggleBtns.length; i++) {
       elemToggleFunc(toggleBtns[i]);
@@ -31,13 +31,12 @@ for (let i = 0; i < toggleBtns.length; i++) {
 }
 
 // page navigation variables
-const navItemLinks = document.querySelectorAll('.nav li a');
-const pages = document.querySelectorAll('.page');
+const navItemLinks = document.querySelectorAll(".nav li a");
+const pages = document.querySelectorAll(".page");
 
 // page navigation functionality
 for (let i = 0; i < navItemLinks.length; i++) {
-  // added onclick event in nav links
-  navItemLinks[i].addEventListener('click', function () {
+  navItemLinks[i].addEventListener("click", function () {
     // collected nav links innertext
     const itemLinkText = this.textContent.toLowerCase();
 
@@ -46,14 +45,16 @@ for (let i = 0; i < navItemLinks.length; i++) {
       // defining page condition
       if (pages[i].classList.contains(itemLinkText)) {
         // add active class on current page
-        pages[i].classList.add('active');
+        pages[i].classList.add("active");
         // add active class on clicked nav link
-        navItemLinks[i].classList.add('active');
+        navItemLinks[i].classList.add("active");
+        //remove active class from sidebar when link is clicked
+        sideBar.classList.remove("active");
       } else {
         // remove active class from other pages
-        pages[i].classList.remove('active');
+        pages[i].classList.remove("active");
         // remove active class from other nav links
-        navItemLinks[i].classList.remove('active');
+        navItemLinks[i].classList.remove("active");
       }
     }
   });
