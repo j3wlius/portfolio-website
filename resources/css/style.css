@@ -670,7 +670,6 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
 }
 
 .reveal-more {
@@ -727,6 +726,22 @@ input {
   transform: translateY(0);
 }
 
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-block: 15px;
+}
+
+.project-stack > span {
+  background-color: #666666;
+  padding: 5px 10px;
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+  font-weight: 600;
+}
+
 @media (min-width: 550px) {
   /* === REUSED STYLE === */
   .section-title {
@@ -742,6 +757,15 @@ input {
 
   .project-cta {
     justify-content: space-around;
+  }
+
+  .project-stack {
+    justify-content: center;
+    margin-block: 30px;
+  }
+
+  .project-stack > span {
+    border-radius: 20px;
   }
 }
 

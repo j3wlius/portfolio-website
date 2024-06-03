@@ -59,3 +59,29 @@ for (let i = 0; i < navItemLinks.length; i++) {
     }
   });
 }
+
+// variable for filtering
+const filterBtns = document.querySelectorAll(".filter-item");
+const projectTiles = document.querySelectorAll(".project-tile");
+
+// Function to set active class on filter button
+function setActiveFilter(clickedBtn) {
+  filterBtns.forEach((btn) => btn.classList.remove("active"));
+  clickedBtn.classList.add("active");
+}
+
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const filter = e.target.dataset.filter;
+    filterProjects(filter); // Pass filter value directly
+    setActiveFilter(e.target); // Set active class on clicked button
+  });
+});
+
+function filterProjects(filter) {
+  projectTiles.forEach((project) => {
+    const projectClasses = project.classList;
+    const projectFilter = projectClasses.contains(filter) || filter === "all";
+    project.classList.toggle("hidden", !projectFilter);
+  });
+}
