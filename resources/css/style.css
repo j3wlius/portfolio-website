@@ -656,6 +656,16 @@ input {
   text-align: justify;
 }
 
+.project-tile {
+  position: relative;
+  overflow: hidden;
+  display: none;
+}
+
+.project-tile.active {
+  display: block;
+}
+
 .project-image {
   grid-row: 1;
   border-radius: 10px 10px 0 0;
@@ -762,6 +772,11 @@ input {
   .project-stack {
     justify-content: center;
     margin-block: 30px;
+  }
+
+  .item-category,
+  .project-stack {
+    display: none;
   }
 
   .project-stack > span {
@@ -910,7 +925,7 @@ input {
 }
 
 .contact-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   height: 100%;
   width: 0%;

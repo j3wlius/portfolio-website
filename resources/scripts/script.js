@@ -61,27 +61,76 @@ for (let i = 0; i < navItemLinks.length; i++) {
 }
 
 // variable for filtering
-const filterBtns = document.querySelectorAll(".filter-item");
-const projectTiles = document.querySelectorAll(".project-tile");
+const filterBtn = document.querySelectorAll(".filter-item");
+const itemCategory = document.querySelectorAll(".item-category");
 
-// Function to set active class on filter button
-function setActiveFilter(clickedBtn) {
-  filterBtns.forEach((btn) => btn.classList.remove("active"));
-  clickedBtn.classList.add("active");
-}
+// added eventListener in filter buttons
+for (let i = 0; i < filterBtn.length; i++) {
+  filterBtn[i].addEventListener("click", function () {
+    // remove all active class from filter button
+    for (let i = 0; i < filterBtn.length; i++) {
+      filterBtn[i].classList.remove("active");
+    }
+    // added active class on filter button clicked
+    this.classList.add("active");
 
-filterBtns.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    const filter = e.target.dataset.filter;
-    filterProjects(filter); // Pass filter value directly
-    setActiveFilter(e.target); // Set active class on clicked button
-  });
-});
+    // show item, based on filter button click
+    // for (let i = 0; i < itemCategory.length; i++) {
+    // const itemCategoryText = itemCategory[i].innerText;
+    // console.log(itemCategoryText);
+    // switch (this.innerText) {
+    //   case itemCategoryText:
+    //     console.log(itemCategory)
+    //     itemCategory[i].parentElement.classList.add('active');
+    //     break;
+    //   case 'All':
+    //     itemCategory[i].parentElement.classList.add('active');
+    //     break;
+    //   default:
+    //     itemCategory[i].parentElement.classList.remove('active');
+    // }
 
-function filterProjects(filter) {
-  projectTiles.forEach((project) => {
-    const projectClasses = project.classList;
-    const projectFilter = projectClasses.contains(filter) || filter === "all";
-    project.classList.toggle("hidden", !projectFilter);
+    // if (itemCategoryText === this.textContent) {
+    //   console.log(
+    //     itemCategory[i].parentElement.parentElement.parentElement
+    //       .parentElement
+    //   );
+    // } else if (this.innerText === "All") {
+    //   console.log(
+    //     itemCategory[i].parentElement.parentElement.parentElement
+    //       .parentElement
+    //   );
+    // } else {
+    //   console.log("None");
+    // }
+
+    for (let i = 0; i < itemCategory.length; i++) {
+      const itemCategoryText = itemCategory[i].textContent;
+      // console.log(itemCategoryText);
+      switch (this.textContent) {
+        case itemCategoryText:
+          // console.log(itemCategoryText)
+          itemCategory[
+            i
+          ].parentElement.parentElement.parentElement.parentElement.classList.add(
+            "active"
+          );
+          break;
+        case "All":
+          console.log(itemCategoryText);
+          itemCategory[
+            i
+          ].parentElement.parentElement.parentElement.parentElement.classList.add(
+            "active"
+          );
+          break;
+        default:
+          itemCategory[
+            i
+          ].parentElement.parentElement.parentElement.parentElement.classList.remove(
+            "active"
+          );
+      }
+    }
   });
 }
