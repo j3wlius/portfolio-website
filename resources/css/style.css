@@ -906,7 +906,8 @@ input {
   resize: none;
 }
 
-.contact-btn {
+.contact-btn,
+.cvd {
   color: var(--background-orange);
   text-transform: uppercase;
   text-decoration: none;
@@ -920,11 +921,13 @@ input {
   overflow: hidden;
 }
 
-.contact-btn:hover {
+.contact-btn:hover,
+.cvd:hover {
   color: white;
 }
 
-.contact-btn::before {
+.contact-btn::before,
+.cvd::before {
   content: "";
   position: absolute;
   height: 100%;
@@ -937,7 +940,8 @@ input {
   transition: all 1s;
 }
 
-.contact-btn:hover::before {
+.contact-btn:hover::before,
+.cvd:hover::before {
   width: 160%;
 }
 
