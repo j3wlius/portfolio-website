@@ -1,21 +1,19 @@
 /* === CUSTOM VARIABLES === */
 :root {
-	/* backgroundColors */
-	/* --raw-seinna: ; */
+	/* colors */
 	--background-dark-100: hsl(0, 0%, 12%);
 	--background-dark-90: #222222;
 	--background-dark-95: #282828;
 	--background-dark-80: #333333;
 	--background-dark-70: #444444;
-	--background-orange: hsl(24, 74%, 58%);
+	--background-orange: hsl(34, 100%, 50%);
 	--background-dark-60: #666666;
-
-	/* colors */
 	--color-white-100: #ffffff;
 	--color-white-95: #f5f5f5;
 	--color-white-80: #d5d5d5;
 	--color-white-60: #aaaaaa;
 	--color-white-70: #bbbbbb;
+	--color-black-100: #000000;
 
 	/* fontSize */
 	--font-size-48: 48px;
@@ -187,43 +185,6 @@ input {
 	color: var(--color-secondary);
 	line-height: 1.8;
 	margin-bottom: 30px;
-}
-
-.btn-primary {
-	padding: 0.8em 1.8em;
-	border: 2px solid var(--background-orange);
-	position: relative;
-	overflow: hidden;
-	background-color: transparent;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 16px;
-	transition: 0.3s;
-	z-index: 1;
-	font-family: inherit;
-	color: var(--background-orange);
-}
-
-.btn-primary::before {
-	content: "";
-	width: 0;
-	height: 300%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%) rotate(45deg);
-	background: var(--background-orange);
-	transition: 0.5s ease;
-	display: block;
-	z-index: -1;
-}
-
-.btn-primary:hover::before {
-	width: 105%;
-}
-
-.btn-primary:hover {
-	color: #111;
 }
 
 /* === OVERALL CONTAINER === */
@@ -646,7 +607,7 @@ input {
 }
 
 .filter-box > li.active {
-	color: var(--color-white-100);
+	color: var(--color-black-100);
 	background-color: var(--background-orange);
 	border-color: var(--background-orange);
 }
@@ -666,7 +627,7 @@ input {
 	align-items: center;
 	font-size: 15px;
 	font-weight: 700;
-	color: #fff;
+	color: var(--color-black-100);
 	transition: all 0.8s;
 	cursor: pointer;
 	position: relative;
@@ -704,6 +665,7 @@ input {
 
 .reveal-more:hover .box:before {
 	transform: translateY(0);
+	color: var(--color-white-100);
 }
 
 @media (min-width: 550px) {
@@ -789,7 +751,7 @@ input {
 
 .contact-info .info-box:hover {
 	transform: translateY(-5px);
-	box-shadow: 0 10px 10px -5px #0005;
+	box-shadow: 0 10px 10px -5px var(--color-black-100);
 }
 
 .contact-info .info-box .icon {
@@ -843,43 +805,113 @@ input {
 	resize: none;
 }
 
-.contact-btn,
-.cvd {
-	color: var(--background-orange);
-	text-transform: uppercase;
-	text-decoration: none;
-	border: 2px solid var(--background-orange);
-	padding: 10px 20px;
-	font-size: 17px;
-	font-weight: bold;
-	background: transparent;
+.cv-btn {
+	width: 10em;
 	position: relative;
-	transition: all 1s;
-	overflow: hidden;
+	height: 3.5em;
+	border: 3px ridge orange;
+	outline: none;
+	background-color: transparent;
+	color: white;
+	transition: 1s;
+	border-radius: 0.3em;
+	font-size: 16px;
+	font-weight: bolder;
+	cursor: pointer;
 }
 
-.contact-btn:hover,
-.cvd:hover {
-	color: white;
+.cv-btn::after {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 3%;
+	width: 95%;
+	height: 40%;
+	background-color: var(--background-dark-80);
+	transition: 0.5s;
+	transform-origin: center;
+}
+
+.cv-btn::before {
+	content: "";
+	transform-origin: center;
+	position: absolute;
+	top: 80%;
+	left: 3%;
+	width: 95%;
+	height: 40%;
+	background-color: var(--background-dark-80);
+	transition: 0.5s;
+}
+
+.cv-btn:hover::before,
+.cv-btn:hover::after {
+	transform: scale(0);
+}
+
+.cv-btn:hover {
+	box-shadow: inset 0px 0px 25px var(--background-orange);
+}
+
+.btn:before,
+.btn:after {
+	background-color: var(--background-dark-90);
+}
+
+.contact-btn {
+	--color: #00a97f;
+	padding: 0.8em 1.7em;
+	background-color: transparent;
+	border-radius: 0.3em;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	transition: 0.5s;
+	font-weight: 400;
+	font-size: 17px;
+	border: 1px solid;
+	font-family: inherit;
+	text-transform: uppercase;
+	color: var(--color);
+	z-index: 1;
 }
 
 .contact-btn::before,
-.cvd::before {
+.contact-btn::after {
 	content: "";
+	display: block;
+	width: 50px;
+	height: 50px;
+	transform: translate(-50%, -50%);
 	position: absolute;
-	height: 100%;
-	width: 0%;
-	top: 0;
-	left: -40px;
-	transform: skewX(45deg);
-	background-color: var(--background-orange);
+	border-radius: 50%;
 	z-index: -1;
-	transition: all 1s;
+	background-color: var(--color);
+	transition: 1s ease;
+}
+
+.contact-btn::before {
+	top: -1em;
+	left: -1em;
+}
+
+.contact-btn::after {
+	left: calc(100% + 1em);
+	top: calc(100% + 1em);
 }
 
 .contact-btn:hover::before,
-.cvd:hover::before {
-	width: 160%;
+.contact-btn:hover::after {
+	height: 410px;
+	width: 410px;
+}
+
+.contact-btn:hover {
+	color: rgb(10, 25, 30);
+}
+
+.contact-btn:active {
+	filter: brightness(0.8);
 }
 
 /* === MEDIA QUERIES === */

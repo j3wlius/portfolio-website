@@ -62,3 +62,20 @@ function handleNavLinksClick(event) {
 navItemLinks.forEach((navItemLink) => {
 	navItemLink.addEventListener("click", handleNavLinksClick);
 });
+
+// filter variables
+const filterBtns = document.querySelectorAll(".filter-btn");
+
+// handle filter functionality
+function handleFilterClick(event) {
+  event.preventDefault();
+  const clickedBtn = event.target.innerText.toLowerCase();
+  filterBtns.forEach((filterBtn) => {
+    filterBtn.classList.remove("active");
+  });
+  event.target.classList.add("active");
+}
+
+filterBtns.forEach((filterBtn) => {
+  filterBtn.addEventListener("click", handleFilterClick);
+});
