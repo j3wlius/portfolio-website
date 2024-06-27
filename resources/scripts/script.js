@@ -1,5 +1,10 @@
 "use strict";
+import {
+	projectsData as data,
+	handleProjectsData,
+} from "./projectsData.js";
 
+// side bar && menu toggler variables
 const menuToggler = document.querySelector(".menu-toggler");
 const sideBar = document.querySelector(".side-bar");
 
@@ -7,11 +12,11 @@ menuToggler.addEventListener("click", function () {
 	sideBar.classList.toggle("active");
 });
 
-// update copyright year
+// copyright year update
 const currentDate = new Date();
 document.querySelector(".year").innerText = currentDate.getFullYear();
 
-// skills toggle
+// skills toggle functionality
 const toggleBtns = document.querySelectorAll(".toggle-btn");
 const toggleBtnBox = document.querySelector(".skills-toggle");
 const skillsBox = document.querySelector(".skills-box");
@@ -34,40 +39,26 @@ for (let i = 0; i < toggleBtns.length; i++) {
 const navItemLinks = document.querySelectorAll(".nav li a");
 const pages = document.querySelectorAll(".page");
 
-// page navigation functionality
-for (let i = 0; i < navItemLinks.length; i++) {
-	navItemLinks[i].addEventListener("click", function () {
-		// collected nav links innertext
-		const itemLinkText = this.textContent.toLowerCase();
+// handle page navigation
+function handleNavLinksClick(event) {
+	event.preventDefault();
 
-		// defined page and add active class
-		for (let i = 0; i < pages.length; i++) {
-			// defining page condition
-			if (pages[i].classList.contains(itemLinkText)) {
-				// add active class on current page
-				pages[i].classList.add("active");
-				// add active class on clicked nav link
-				navItemLinks[i].classList.add("active");
-				//remove active class from sidebar when link is clicked
+	navItemLinks.forEach((navItemLink) => {
+		navItemLink.classList.remove("active");
+		let clickedLink = event.target.innerText.toLowerCase();
+		event.target.classList.add("active");
+
+		pages.forEach((page) => {
+			if (page.classList.contains(clickedLink)) {
+				page.classList.add("active");
 				sideBar.classList.remove("active");
 			} else {
-				// remove active class from other pages
-				pages[i].classList.remove("active");
-				// remove active class from other nav links
-				navItemLinks[i].classList.remove("active");
+				page.classList.remove("active");
 			}
-		}
+		});
 	});
 }
 
-// variable for filtering
-const filterBtns = document.querySelectorAll(".filter-item");
-
-// filter functionality
-// console.log(filterBtns);
-
-for (let i = 0; i < filterBtns.length; i++) {
-	filterBtns[i].addEventListener("click", function () {
-		this.classList.add("active");
-	});
-}
+navItemLinks.forEach((navItemLink) => {
+	navItemLink.addEventListener("click", handleNavLinksClick);
+});

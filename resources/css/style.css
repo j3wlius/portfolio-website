@@ -652,10 +652,10 @@ input {
 }
 
 .reveal-more {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin-inline: auto;
-  max-width: 100px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	margin-inline: auto;
+	max-width: 100px;
 }
 
 .box {
