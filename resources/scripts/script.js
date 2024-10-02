@@ -1,8 +1,8 @@
 "use strict";
-import {
-	projectsData as data,
-	handleProjectsData,
-} from "./projectsData.js";
+// import {
+// 	projectsData as data,
+// 	handleProjectsData,
+// } from "./projectsData.js";
 
 // side bar && menu toggler variables
 const menuToggler = document.querySelector(".menu-toggler");
