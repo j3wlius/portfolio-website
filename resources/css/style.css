@@ -536,6 +536,11 @@ input {
 	margin-bottom: 20px;
 }
 
+.exp-desc li {
+	margin-bottom: 1rem;
+}
+
+
 .resume-row .grid-item {
 	position: relative;
 	grid-template-columns: 0.5fr 1fr;
